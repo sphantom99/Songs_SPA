@@ -1,3 +1,6 @@
+
+//Depracated page, need to confirm use
+
 import {getAllSongs,getSongData} from '../../lib/songs'
 import {useRouter} from 'next/router'
 

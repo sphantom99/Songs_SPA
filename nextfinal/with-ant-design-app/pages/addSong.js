@@ -1,3 +1,5 @@
+//ADD SONG PAGE, layout and form used by antd
+
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { Form, Input, InputNumber, Button } from 'antd';
 import{useRouter} from 'next/router'
@@ -11,7 +13,7 @@ const layout = {
     span: 16,
   },
 };
-const validateMessages = {
+const validateMessages = { //messages for required fields with rules
   required: '${label} is required!',
   types: {
     email: '${label} is not a valid email!',
@@ -22,11 +24,8 @@ const validateMessages = {
   },
 };
 
-export default function addPage() {
-  const onFinish = (values) => {
-    console.log(values);
-  };
-  const router = useRouter()
+export default function addPage() {  //main function 
+  const router = useRouter()  //use router for navigation buttons
   const { Header, Content, Footer } = Layout;
 
   return (<Layout className="layout">
@@ -81,10 +80,10 @@ export default function addPage() {
         </Button>
       </Form.Item>
     </Form>
-    <Breadcrumb style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>List</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
+      <Breadcrumb style={{ margin: '16px 0' }}>
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>List</Breadcrumb.Item>
+          <Breadcrumb.Item>App</Breadcrumb.Item>
       </Breadcrumb>
       <div className="site-layout-content">Content</div>
     </Content>

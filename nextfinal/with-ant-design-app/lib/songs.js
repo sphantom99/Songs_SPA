@@ -1,4 +1,4 @@
-export async function getAllSongs(){
+export async function getAllSongs(){ //fetch func "Select * from cds"
     const res = await fetch('http://localhost:5000/')  
     const songs = await res.json()
     return songs.map(song => {
@@ -14,7 +14,7 @@ export async function getAllSongs(){
     })
 }
 
-export async function getSongData(id){
+export async function getSongData(id){ //fetch func "Select * from cds where id = id"
     const res = await fetch(`http://localhost:5000/songs/${id}`)
     const songs = await res.json()
     return{
@@ -22,7 +22,7 @@ export async function getSongData(id){
     }
 }
 
-export async function addSong(props){
+export async function addSong(props){ //fetch func "insert into cds values (....)"
     console.log(props)
     
     try{
