@@ -1,14 +1,14 @@
 
 //Depracated page, need to confirm use
 
-import {getAllSongs,getSongData} from '../../lib/songs'
-import {useRouter} from 'next/router'
+import {getAllSongs,getSongData} from '../../lib/songs';
+import {useRouter} from 'next/router';
 
 export async function getServerSideProps(context){
     //const router = useRouter()
     //const {id} = router.query
-    const songData = await getSongData(context.params.id)//{id: 2,name:"The Search", length:2.15, band:"nf", genre: "pop"}//
-    console.log(songData)
+    const songData = await getSongData(context.params.id);//{id: 2,name:"The Search", length:2.15, band:"nf", genre: "pop"}//
+    //console.log(songData)
     return{
         props: {
             songData

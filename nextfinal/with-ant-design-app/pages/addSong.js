@@ -2,9 +2,9 @@
 
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { Form, Input, InputNumber, Button } from 'antd';
-import{useRouter} from 'next/router'
-import {addSong} from '../lib/songs'
-import {useState} from 'react'
+import{useRouter} from 'next/router';
+import {addSong} from '../lib/songs';
+import {useState} from 'react';
 const layout = {
   labelCol: {
     span: 8,
@@ -25,7 +25,7 @@ const validateMessages = { //messages for required fields with rules
 };
 
 export default function addPage() {  //main function 
-  const router = useRouter()  //use router for navigation buttons
+  const router = useRouter(); //use router for navigation buttons
   const { Header, Content, Footer } = Layout;
 
   return (<Layout className="layout">
@@ -39,7 +39,7 @@ export default function addPage() {  //main function
   </Header>
   <Content style={{ padding: '0 50px' }}>
 
-    <Form {...layout} name="nest-messages" onFinish={(values)=> {alert("Song has been added!"); addSong(values); router.push(`./newindextesting`)}} validateMessages={validateMessages}>
+    <Form {...layout} name="nest-messages" onFinish={(values)=> {addSong(values); alert("Song has been added!"); router.push(`./newindextesting`);}} validateMessages={validateMessages}>
       <Form.Item
         name={['name']}
         label="Name"
@@ -93,6 +93,6 @@ export default function addPage() {  //main function
 };
 
 function addtheSong(values){
-  console.log(values)
+  console.log(values);
 }
 //ReactDOM.render(<Demo />, mountNode);

@@ -1,31 +1,31 @@
 import { Layout, Menu, Breadcrumb } from 'antd';
-import Head from 'next/head'
-import {getAllSongs} from '../lib/songs'
-import Link from 'next/link'
-import {useRouter} from 'next/router'
-import {Button} from 'antd'
+import Head from 'next/head';
+import {getAllSongs} from '../lib/songs';
+import Link from 'next/link';
+import {useRouter} from 'next/router';
+import {Button} from 'antd';
 import "antd/dist/antd.css";
 import { Table, Tag, Space } from 'antd';
 export async function getServerSideProps(){
-    const allSongs = await getAllSongs()// getAllSongs -> ../lib/songs //[{id:2,length:3.14},{id:3,length:2.15}]
+    const allSongs = await getAllSongs();// getAllSongs -> ../lib/songs //[{id:2,length:3.14},{id:3,length:2.15}]
     return {
       props: {
         allSongs
       }
     }
-  }
+  };
 
 export default function indexer({allSongs}){ //main function
-  const router = useRouter()
+  const router = useRouter();
   if(allSongs.error){
-    router.replace('/')
+    router.replace('/');
   }
       
   
   
   const { Header, Content, Footer } = Layout;
   const { Column, ColumnGroup } = Table;
-  const data = allSongs.map((song)=> {return{ id: song.params.id, name: song.params.name, band: song.params.band, length: song.params.length, genre: song.params.genre}})
+  const data = allSongs.map((song)=> {return{ id: song.params.id, name: song.params.name, band: song.params.band, length: song.params.length, genre: song.params.genre};})
 
   return(
     <Layout className="layout">
@@ -56,7 +56,7 @@ export default function indexer({allSongs}){ //main function
           render={(text, record) => (
             <Space size="middle">
               <a>Edit</a>
-              <a onClick={()=>{router.push(`./addSong`)}}>Delete</a>
+              <a onClick={()=>{router.push(`./addSong`);}}>Delete</a>
             </Space>
           )}
         />
@@ -69,7 +69,7 @@ export default function indexer({allSongs}){ //main function
           </Breadcrumb>
           <div className="site-layout-content">Content</div>
 
-          
+
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
     </Layout>
